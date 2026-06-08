@@ -1,0 +1,81 @@
+export const projects = [
+  {
+    id: 1,
+    title: "SimPathy",
+    subtitle: "Virtual Patient System",
+    description:
+      "An AI-powered virtual patient simulation system designed for medical education. Students can interact with AI-generated patients to practice diagnostic skills, take medical histories, and develop clinical reasoning in a safe, controlled environment.",
+    techStack: ["React", "FastAPI", "Python", "AI/NLP", "SQLite"],
+    features: [
+      "AI-driven patient simulation",
+      "Dynamic symptom generation",
+      "Medical history interaction",
+      "Student performance analytics",
+    ],
+    image: "/project-simpathy.png",
+    github: "https://github.com/J0v1t/simpathy-demo",
+    demo: "https://simpathy-demo.vercel.app/",
+    status: "In Development",
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "MyRhythm",
+    subtitle: "Music Recommendation System",
+    description:
+      "A personalized music recommendation desktop application that uses facial emotion recognition and heart rate data to suggest music matching the user's current emotional and physiological state.",
+    techStack: ["PyQt5", "Python", "FER", "OpenCV", "Machine Learning"],
+    features: [
+      "Facial emotion recognition",
+      "Heart rate integration",
+      "Personalized recommendations",
+      "Emotion-based playlist generation",
+    ],
+    image: "/project-myrhythm.png",
+    github: "https://github.com/nichoq/myrhythm",
+    demo: "#",
+    demoVideo: "/MyRhythm Demo.mov",
+    status: "Completed",
+    featured: true,
+  },
+  {
+    id: 3,
+    title: "CareFlow",
+    subtitle: "Doctor Appointment System",
+    description:
+      "A comprehensive web-based doctor appointment management system that streamlines the booking process, manages patient records, and provides an intuitive interface for both patients and healthcare providers.",
+    techStack: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    features: [
+      "Appointment scheduling",
+      "Doctor search & filtering",
+      "Patient profile management",
+      "Responsive web interface",
+    ],
+    image: "/project-careflow.png",
+    github: "https://github.com/nichoq/Careflow",
+    demo: "https://careflow-chi.vercel.app",
+    status: "Completed",
+    featured: true,
+  },
+  {
+    id: 4,
+    title: "AUTOMATE",
+    subtitle: "Automata Theory Visualizer",
+    description:
+      "AUTOMATE is a web-based simulator that visualizes DFA, CFG, and PDA processing. It allows users to input strings and see step-by-step validation based on formal language rules.",
+    techStack: ["React", "JavaScript", "CSS", "Automata Theory"],
+    features: [
+      "DFA simulation with step-by-step state transitions",
+      "Pushdown Automaton (PDA) stack visualization",
+      "Context-Free Grammar (CFG) leftmost derivation tracing",
+      "Batch string testing with instant validation",
+      "Dynamic trace tape with animation controls",
+      "Transition matrix and state meaning visualization",
+    ],
+    image: "/project-automate.png",
+    github: "https://github.com/nichoq/AUTOMATES",
+    demo: "https://automates-sand.vercel.app/",
+    status: "Completed",
+    featured: true,
+  }
+];
