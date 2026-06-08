@@ -28,6 +28,14 @@ npm install
 npm run dev
 ```
 
+## Contact Form Setup
+
+The contact form uses Web3Forms. Create an access key at [web3forms.com](https://web3forms.com), then add it to Vercel as:
+
+```bash
+VITE_WEB3FORMS_ACCESS_KEY=your_access_key
+```
+
 ## Build
 
 ```bash

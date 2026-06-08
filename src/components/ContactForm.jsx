@@ -6,22 +6,68 @@ export default function ContactForm() {
     email: '',
     subject: '',
     message: '',
+    botcheck: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitStatus(null);
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+    if (!accessKey) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Contact form is not configured yet. Please email me directly for now.',
+      });
+      return;
+    }
+
     setIsSubmitting(true);
-    // Placeholder for form submission logic
-    setTimeout(() => {
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          subject: `Portfolio Inquiry: ${formData.subject}`,
+          message: formData.message,
+          from_name: 'Nicholas Quizo Portfolio',
+          botcheck: formData.botcheck,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Unable to send message.');
+      }
+
+      setSubmitStatus({
+        type: 'success',
+        message: "Message sent. I'll get back to you soon.",
+      });
+      setFormData({ name: '', email: '', subject: '', message: '', botcheck: '' });
+    } catch {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Something went wrong. Please try again or email me directly.',
+      });
+    } finally {
       setIsSubmitting(false);
-      alert('Message sent! (placeholder)');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1000);
+    }
   };
 
   const contactInfo = [
@@ -76,6 +122,16 @@ export default function ContactForm() {
           {/* Contact Form */}
           <div className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="space-y-5" id="contact-form">
+              <input
+                type="checkbox"
+                name="botcheck"
+                value={formData.botcheck}
+                onChange={handleChange}
+                className="hidden"
+                tabIndex="-1"
+                autoComplete="off"
+              />
+
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label htmlFor="contact-name" className="block text-sm font-medium text-gray-400 mb-2">
@@ -164,6 +220,19 @@ export default function ContactForm() {
                   </>
                 )}
               </button>
+
+              {submitStatus && (
+                <div
+                  className={`rounded-xl border px-4 py-3 text-sm ${
+                    submitStatus.type === 'success'
+                      ? 'border-green-400/20 bg-green-400/10 text-green-300'
+                      : 'border-red-400/20 bg-red-400/10 text-red-300'
+                  }`}
+                  role="status"
+                >
+                  {submitStatus.message}
+                </div>
+              )}
             </form>
           </div>
 
