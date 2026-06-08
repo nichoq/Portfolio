@@ -1,8 +1,10 @@
 # Nicholas Jere Quizo Portfolio
 
-Personal portfolio website showcasing my background as a Computer Science student, featured software projects, certifications, gallery highlights, and contact information.
+This portfolio is a personal space for presenting my work, background, and growth as a Computer Science student and software developer. It brings together my featured projects, technical skills, certifications, academic highlights, and contact information in one interactive web experience.
 
-## Tech Stack
+The site is designed with a dark, modern visual style, animated details, and responsive sections that highlight both technical work and personal milestones. It includes project previews, certificate modals, a gallery section, a downloadable resume, and a contact form for inquiries.
+
+## Built With
 
 - React
 - Vite
@@ -10,39 +12,20 @@ Personal portfolio website showcasing my background as a Computer Science studen
 - GSAP
 - OGL
 
-## Features
-
-- Animated hero section with split-text entrance
-- Interactive aurora background
-- About Me section with profile highlight
-- Featured projects with previews and demo links
-- Certificate gallery with enlarged preview modal
-- Interactive life/gallery section
-- Responsive design for desktop and mobile
-- Resume download link
-
-## Getting Started
+## Running Locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Contact Form Setup
-
-The contact form uses Web3Forms. Create an access key at [web3forms.com](https://web3forms.com), then add it to Vercel as:
-
-```bash
-VITE_WEB3FORMS_ACCESS_KEY=your_access_key
-```
-
-## Build
+## Production Build
 
 ```bash
 npm run build
 ```
 
-## Preview
+## Preview Build
 
 ```bash
 npm run preview
